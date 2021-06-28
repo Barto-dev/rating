@@ -1,13 +1,17 @@
 .button {
     display: inline-block;
+
     box-sizing: border-box;
     padding: 10px;
+
     cursor: pointer;
+    transition: all 0.3s;
     text-align: center;
+
     border: none;
     border-radius: 5px;
+
     font-size: 14px;
-    transition: all 0.3s;
 }
 
 .primary {
@@ -21,11 +25,27 @@
 
 .ghost {
     color: var(--black);
-    background-color: transparent;
     border: 1px solid var(--gray-light);
+    background-color: transparent;
 }
 
 .ghost:hover {
     color: var(--white);
-    background-color:var(--primary);
+    background-color: var(--primary);
+}
+
+.arrow {
+    display: inline-block;
+
+    margin-left: 10px;
+}
+
+.down {
+    transition: 0.3s;
+    transform: rotate(90deg);
+}
+
+.primary svg,
+.ghost:hover svg {
+    fill: var(--white);
 }
