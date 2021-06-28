@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "debug": "NODE_OPTIONS='--debug' next dev",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stylelint": "stylelint \"**/*.css\" --fix"
+
   },
   "dependencies": {
     "next": "11.0.1",
