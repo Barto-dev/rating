@@ -5,7 +5,9 @@ import Tag from "../components/Tag/Tag";
 import Rating from "../components/Rating/Rating";
 import {useState} from "react";
 
-export default function Home(): JSX.Element {
+import {withLayout} from "../layout/Layout";
+
+function Home(): JSX.Element {
 
   const [rating, setRating] = useState<number>(4);
 
@@ -20,3 +22,5 @@ export default function Home(): JSX.Element {
     </>
   );
 }
+
+export default withLayout(Home);

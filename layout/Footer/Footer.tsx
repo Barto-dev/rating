@@ -1,10 +1,11 @@
 import React from 'react';
+import {FooterProps} from "./Footer.props";
 
-const Footer = () => {
+const Footer = ({...props}: FooterProps): JSX.Element => {
   return (
-    <div>
-
-    </div>
+    <footer {...props}>
+      Footer
+    </footer>
   );
 };
 

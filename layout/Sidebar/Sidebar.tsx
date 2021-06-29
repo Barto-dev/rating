@@ -1,11 +1,12 @@
 import React from 'react';
 
 import styles from './Sidebar.module.css';
+import {SidebarProps} from "./Sidebar.props";
 
-const Sidebar = (): JSX.Element => {
+const Sidebar = ({...props} : SidebarProps): JSX.Element => {
   return (
-    <div>
-
+    <div {...props}>
+      Sidebar
     </div>
   );
 };
