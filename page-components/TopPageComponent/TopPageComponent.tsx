@@ -5,6 +5,8 @@ import {TopPageComponentProps} from "./TopPageComponent.props";
 import Htag from "../../components/Htag/Htag";
 import Tag from "../../components/Tag/Tag";
 
+import HhData from "../../components/HhData/HhData";
+
 const TopPageComponent = ({firstCategory, page, products}: TopPageComponentProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
@@ -23,10 +25,8 @@ const TopPageComponent = ({firstCategory, page, products}: TopPageComponentProps
         <Htag tag='h2'>Вакансии - {page.category}</Htag>
         <Tag color='red' size='m'>hh.ru</Tag>
       </div>
+      <HhData {...page.hh} />
 
-      <div className={styles.hh}>
-
-      </div>
     </div>
   );
 };
