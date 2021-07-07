@@ -6,6 +6,7 @@ import Htag from "../../components/Htag/Htag";
 import Tag from "../../components/Tag/Tag";
 
 import HhData from "../../components/HhData/HhData";
+import {TopLevelCategory} from "../../interfaces/page.interface";
 
 const TopPageComponent = ({firstCategory, page, products}: TopPageComponentProps): JSX.Element => {
   return (
@@ -25,7 +26,8 @@ const TopPageComponent = ({firstCategory, page, products}: TopPageComponentProps
         <Htag tag='h2'>Вакансии - {page.category}</Htag>
         <Tag color='red' size='m'>hh.ru</Tag>
       </div>
-      <HhData {...page.hh} />
+      {firstCategory === TopLevelCategory.Courses && <HhData {...page.hh} />}
+
 
     </div>
   );

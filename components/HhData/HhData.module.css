@@ -23,3 +23,57 @@
 .salary > div:last-child {
     border-right: none;
 }
+
+.title {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 27px;
+    margin-bottom: 10px;
+}
+
+.countValue {
+    color: var(--primary);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.salaryValue {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.rate {
+    display: grid;
+    grid-template-columns: repeat(3, 20px);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.filled circle {
+    fill: var(--red)
+}
+
+
+@media screen and (max-width: 1200px){
+    .hh {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 640px){
+    .salary {
+        grid-template-columns: 1fr;
+        grid-gap: 20px 0;
+    }
+
+    .salary > div {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-light);
+        padding-bottom: 20px;
+    }
+
+    .salary > div:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+}
