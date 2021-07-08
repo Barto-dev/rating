@@ -3,6 +3,7 @@ import Button from "../components/Button/Button";
 import P from '../components/P/P';
 import Tag from "../components/Tag/Tag";
 import Rating from "../components/Rating/Rating";
+import Input from "../components/Input/Input";
 import {useState} from "react";
 
 import {withLayout} from "../layout/Layout";
@@ -22,6 +23,7 @@ function Home({menu, firstCategory}: HomeProps): JSX.Element {
       <P size={'s'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, incidunt.</P>
       <Tag color={'red'} href={'google.com'}>111</Tag>
       <Rating rating={rating} isEditable={true} setRating={setRating} />
+      <Input placeholder={'Name'}/>
     </>
   );
 }
