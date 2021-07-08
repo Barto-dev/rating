@@ -1,9 +1,9 @@
 .sortIcon {
-    display: none;
+    visibility: hidden;
 }
 
 .active .sortIcon {
-    display: block;
+    visibility: visible;
 }
 
 .sortIcon {
@@ -24,6 +24,6 @@
 
 .sort {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     grid-gap: 40px;
 }
