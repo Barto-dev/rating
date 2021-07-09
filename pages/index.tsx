@@ -26,6 +26,7 @@ function Home({menu, firstCategory}: HomeProps): JSX.Element {
       <Rating rating={rating} isEditable={true} setRating={setRating} />
       <Input placeholder={'Name'}/>
       <Textarea placeholder={'Name'}/>
+
     </>
   );
 }
