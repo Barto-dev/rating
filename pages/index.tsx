@@ -10,6 +10,7 @@ import {withLayout} from "../layout/Layout";
 import axios from "axios";
 import {GetStaticProps} from "next";
 import {MenuItem} from "../interfaces/menu.interface";
+import Textarea from "../components/Textarea/Textarea";
 
 function Home({menu, firstCategory}: HomeProps): JSX.Element {
 
@@ -24,6 +25,7 @@ function Home({menu, firstCategory}: HomeProps): JSX.Element {
       <Tag color={'red'} href={'google.com'}>111</Tag>
       <Rating rating={rating} isEditable={true} setRating={setRating} />
       <Input placeholder={'Name'}/>
+      <Textarea placeholder={'Name'}/>
     </>
   );
 }
