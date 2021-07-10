@@ -1,4 +1,4 @@
-import React, {FormHTMLAttributes, useState} from 'react';
+import React, { useState } from 'react';
 import {SearchProps} from "./Search.props";
 import styles from './Search.module.css';
 
