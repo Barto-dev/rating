@@ -7,11 +7,14 @@
     width: 100%;
 }
 
-.button {
+.search .button {
     position: absolute;
     top: 3px;
     right: 3px;
     width: 30px;
     height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 7px;
 }
