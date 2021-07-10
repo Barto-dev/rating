@@ -11,15 +11,18 @@
 }
 
 .sortBtn {
+    display: flex;
+
+    cursor: pointer;
+
     border: none;
     background-color: transparent;
-    display: flex;
-    cursor: pointer;
 }
 
 .sortBtn.active {
-    font-weight: 700;
     color: var(--primary);
+
+    font-weight: 700;
 }
 
 .sort {

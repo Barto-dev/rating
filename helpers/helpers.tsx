@@ -15,3 +15,12 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
 export const priceRu = (price: number): string => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ').concat(' ₽');
 };
+
+export const declOfNum = (number: number, titles: [string, string, string]): string => {
+  const cases = [2, 0, 1, 1, 1, 2];
+  // titles = ['отзыв', 'отзыва' , 'отзывов' ]
+  // Если число больше 105(5) или меньше 120(20) то возвращаем вариант 3
+  // иначе если у нас число меньше 15 (5) возвращаем из масива cases (0 отзывов [2 index in titles] и тд
+  // иначе если больше 5 возвращаем из titles[cases[5]] отзывов
+  return titles[(number % 100 > 4 && number % 100 < 20) ? 2: cases[(number % 10 < 5) ? number % 10 : 5]];
+};

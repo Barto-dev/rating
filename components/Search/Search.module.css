@@ -1,5 +1,6 @@
 .search {
     position: relative;
+
     width: 100%;
 }
 
@@ -11,10 +12,12 @@
     position: absolute;
     top: 3px;
     right: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 30px;
     height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 7px;
 }
