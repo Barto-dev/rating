@@ -19,6 +19,7 @@
 .price,
 .priceTitle {
     grid-column: pricestart / priceend;
+    white-space: nowrap;
 }
 
 .credit,
@@ -29,6 +30,7 @@
 .rating,
 .rateTitle {
     grid-column: ratestart / end;
+    white-space: nowrap;
 }
 
 .hr,
@@ -254,5 +256,27 @@
 
     .title {
         margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "logo"
+        "title"
+        "tags"
+        "price"
+        "priceTitle"
+        "credit"
+        "creditTitle"
+        "rating"
+        "rateTitle"
+        "hr"
+        "description"
+        "feature"
+        "advBlock"
+        "hr2"
+        "actions";
     }
 }
