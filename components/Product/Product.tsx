@@ -13,6 +13,7 @@ import Button from "../Button/Button";
 import Divider from "../Divider/Divider";
 import Image from "next/image";
 import Review from "../Review/Review";
+import ReviewForm from "../ReviewForm/ReviewForm";
 
 const Product = ({product, className, ...props}: ProductProps): JSX.Element => {
   const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
@@ -72,9 +73,9 @@ const Product = ({product, className, ...props}: ProductProps): JSX.Element => {
         <div className={styles.actions}>
           <Button appearance={'primary'}>Узнать подробнее</Button>
           {product.reviews.length > 0 && <Button onClick={() => setIsReviewOpened(!isReviewOpened)}
-                                      className={styles.reviewButton}
-                                      appearance={'ghost'}
-                                      arrow={isReviewOpened ? 'down' : 'right'}>Читать отзывы</Button>}
+                                                 className={styles.reviewButton}
+                                                 appearance={'ghost'}
+                                                 arrow={isReviewOpened ? 'down' : 'right'}>Читать отзывы</Button>}
 
         </div>
 
@@ -85,12 +86,17 @@ const Product = ({product, className, ...props}: ProductProps): JSX.Element => {
         [styles.closed]: !isReviewOpened
       })}>
         {product.reviews.map(r => (
-          <Review key={r._id} review={r} />
+          <>
+            <Review key={r._id} review={r} />
+            <Divider />
+          </>
         ))}
+        <ReviewForm productId={product._id} />
 
       </Card>
     </>
   );
-};
+}
+;
 
 export default Product;

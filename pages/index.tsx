@@ -12,6 +12,7 @@ import {GetStaticProps} from "next";
 import {MenuItem} from "../interfaces/menu.interface";
 import Textarea from "../components/Textarea/Textarea";
 
+
 function Home({menu, firstCategory}: HomeProps): JSX.Element {
 
   const [rating, setRating] = useState<number>(4);
