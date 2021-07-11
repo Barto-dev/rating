@@ -20,6 +20,7 @@ const Rating = ({isEditable = false, rating, setRating, ...props}: RatingProps):
       return (
 
         <button
+          type={'button'}
           className={cn(styles.star, {
             [styles.filled]: i < currentRating,
             [styles.editable]: isEditable
