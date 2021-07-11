@@ -1,6 +1,7 @@
 import React from 'react';
 import {ProductProps} from "./Product.props";
 import styles from './Product.module.css';
+import cn from 'classnames'
 
 import {priceRu} from "../../helpers/helpers";
 import {declOfNum} from "../../helpers/helpers";
@@ -20,7 +21,6 @@ const Product = ({product, className, ...props}: ProductProps): JSX.Element => {
                alt={product.title}
                width={70}
                height={70} />
-        {/*<img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} />*/}
       </div>
       <div className={styles.title}>{product.title}</div>
       <div className={styles.price}>
@@ -63,9 +63,8 @@ const Product = ({product, className, ...props}: ProductProps): JSX.Element => {
           <div className="">{product.disadvantages}</div>
         </div>}
 
-
       </div>
-      <Divider className={styles.hr} />
+      <Divider className={cn(styles.hr, styles.hr2)} />
       <div className={styles.actions}>
         <Button appearance={'primary'}>Узнать подробнее</Button>
         <Button className={styles.reviewButton} appearance={'ghost'} arrow={'right'}>Читать отзывы</Button>
