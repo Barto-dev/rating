@@ -157,6 +157,13 @@
     padding: 30px;
 }
 
+.rateTitle button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: var(--primary);
+}
+
 @media screen and (max-width: 1320px) {
     .product {
         grid-template-columns:
