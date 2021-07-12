@@ -13,7 +13,7 @@ import {ReviewFormInterface} from "./ReviewForm.interface";
 
 const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Element => {
 
-  const {register, control, handleSubmit} = useForm<ReviewFormInterface>();
+  const {register, control, handleSubmit, formState: {errors}} = useForm<ReviewFormInterface>();
 
   const onSubmit = (data: ReviewFormInterface) => {
     console.log(data);
@@ -22,19 +22,28 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={cn(styles.reviewForm, className)} {...props}>
-        <Input {...register('name')}
-               placeholder={'Имя'} />
-        <Input {...register('title')}
+        <Input {...register('name', {required: {value: true, message: 'Заполните имя'}})}
+               placeholder={'Имя'}
+               error={errors.name}/>
+        <Input {...register('title', {required: {value: true, message: 'Заполните заголовок'}})}
                placeholder={'Заголовок отзыва'}
+               error={errors.title}
                className={styles.title} />
         <div className={styles.rating}>
           <span className={styles.ratingTitle}>Оценка</span>
           <Controller render={({field}) => (
-            <Rating rating={field.value} isEditable setRating={field.onChange}/>
+            <Rating rating={field.value}
+                    ref={field.ref}
+                    isEditable
+                    setRating={field.onChange}/>
           )} name={'rating'} control={control} />
 
         </div>
-        <Textarea {...register('description')} className={styles.description} />
+        <Textarea
+          {...register('description', {required: {value: true, message: 'Заполните описание'}})}
+          placeholder='Текст отзыва'
+          error={errors.description}
+          className={styles.description} />
         <div className={styles.submit}>
           <Button appearance={'primary'}>Отправить</Button>
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>

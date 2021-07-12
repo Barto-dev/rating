@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {ForwardedRef, forwardRef} from 'react';
 import styles from './Input.module.css';
 import {InputProps} from "./Input.props";
 import cn from 'classnames';
 
-const Input = ({className, ...props}: InputProps):JSX.Element => {
+const Input = forwardRef(({className, error, ...props}: InputProps, ref:ForwardedRef<HTMLInputElement>):JSX.Element => {
   return (
-    <input type="text" className={cn(styles.input, className)} {...props}/>
+    <div className={cn(styles.inputWrapper ,className)}>
+    <input ref={ref}
+           type="text"
+           className={cn(styles.input, {
+             [styles.error]: error
+           })} {...props}/>
+      {error && <span className={styles.errorMessage}>{error.message}</span>}
+      </div>
   );
-};
+});
 
 export default Input;

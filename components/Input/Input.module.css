@@ -2,9 +2,10 @@
     padding: 7px 15px;
 
     color: var(--black);
-    border: none;
+
     border-radius: 5px;
     outline-color: var(--primary);
+    border: 1px solid var(--white);
     background-color: var(--white);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
 
@@ -14,4 +15,20 @@
 
 .input::placeholder {
     color: var(--gray);
+}
+
+.inputWrapper {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.error {
+    border: 1px solid var(--red);
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    color: var(--red);
 }
