@@ -35,8 +35,12 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
             <Rating rating={field.value}
                     ref={field.ref}
                     isEditable
+                    error={errors.rating}
                     setRating={field.onChange}/>
-          )} name={'rating'} control={control} />
+          )}          rules={{required: {value: true, message: 'Выберите оценку'}}}
+                      name={'rating'}
+                      control={control}
+                      />
 
         </div>
         <Textarea
