@@ -68,22 +68,21 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
         </div>
       </div>
-      {isSuccess && <div className={styles.success}>
+      {isSuccess && <div className={cn(styles.success, styles.panel)}>
         <div className={styles.successTitle}>Ваш отзыв отправлен</div>
         <div className="">
           Спасибо, ваш отзыв будет опубликован после проверки.
         </div>
-        <button className={styles.close}>
+        <button type='button' className={styles.close} onClick={() => setIsSuccess(false)}>
           <CloseIcon />
         </button>
       </div>}
 
-      {isError && <div className={styles.error}>
-        <div className={styles.successTitle}>Ваш отзыв отправлен</div>
-        <div className="">
-          Спасибо, ваш отзыв будет опубликован после проверки.
+      {isError && <div className={cn(styles.error, styles.panel)}>
+        <div>
+          Что-то пошло не так, попробуйте обновить страницу
         </div>
-        <button className={styles.close}>
+        <button className={styles.close} onClick={() => setIsError(undefined)}>
           <CloseIcon />
         </button>
       </div>}
