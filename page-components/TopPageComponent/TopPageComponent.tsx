@@ -21,7 +21,7 @@ const TopPageComponent = ({firstCategory, page, products}: TopPageComponentProps
   };
 
   useEffect(() => {
-    dispatchSort({type: 'reset', initialState: products})
+    dispatchSort({type: 'reset', initialState: products});
   }, [products]);
 
 
@@ -34,7 +34,7 @@ const TopPageComponent = ({firstCategory, page, products}: TopPageComponentProps
         <Sort sort={sort} setSort={setSort} />
       </header>
 
-      <div className="">
+      <div>
         {sortedProducts && sortedProducts.map(p => (<Product key={p._id} product={p}/>))}
       </div>
 
