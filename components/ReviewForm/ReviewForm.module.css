@@ -1,12 +1,13 @@
 .reviewForm {
-    font-size: 14px;
-    line-height: 24px;
+    display: grid;
+    align-items: center;
+
     padding: 20px 30px 30px;
 
-    display: grid;
+    font-size: 14px;
+    line-height: 24px;
     grid-template-columns: [start] auto 1fr auto [end];
     grid-gap: 20px 30px;
-    align-items: center;
 }
 
 .description {
@@ -14,10 +15,10 @@
 }
 
 .submit {
-    grid-column: start / end;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    flex-wrap: wrap;
+    grid-column: start / end;
 }
 
 .title {
@@ -38,8 +39,10 @@
 
 .panel {
     position: relative;
-    border-radius: 5px;
+
     padding: 20px 30px;
+
+    border-radius: 5px;
 }
 
 .success {
@@ -47,7 +50,7 @@
 }
 
 .error {
-    background-color: #fea291;
+    background-color: #FEA291;
 }
 
 .successTitle {
@@ -55,13 +58,16 @@
 }
 
 .close {
-    padding: 0;
-    background-color: transparent;
     position: absolute;
     top: 20px;
     right: 20px;
-    border: none;
+
+    padding: 0;
+
     cursor: pointer;
+
+    border: none;
+    background-color: transparent;
 }
 
 .error .close path {

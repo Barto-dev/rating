@@ -19,6 +19,7 @@
 .price,
 .priceTitle {
     grid-column: pricestart / priceend;
+
     white-space: nowrap;
 }
 
@@ -30,6 +31,7 @@
 .rating,
 .rateTitle {
     grid-column: ratestart / end;
+
     white-space: nowrap;
 }
 
@@ -128,62 +130,62 @@
 
 .characteristics {
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    margin-right: 20px;
     align-items: baseline;
+
+    margin-right: 20px;
+    grid-template-columns: auto 1fr auto;
     grid-gap: 10px;
 }
 
 .characteristicsName {
-    font-weight: 700;
     font-size: 16px;
+    font-weight: 700;
     line-height: 32px;
 }
 
-
 .characteristicsDots {
-    border-bottom: 1px dashed var(--gray-light);
     margin-bottom: 5px;
+
+    border-bottom: 1px dashed var(--gray-light);
 }
 
-.closed {
-    overflow: hidden;
-    max-height: 0;
-    padding: 0;
-}
-
-.opened {
-    max-height: auto;
+.reviews {
     padding: 30px;
+}
+
+.reviewAnimation {
+    position: relative;
+
+    overflow: hidden;
 }
 
 .rateTitle button {
     cursor: pointer;
-    background-color: transparent;
-    border: none;
+
     color: var(--primary);
+    border: none;
+    background-color: transparent;
 }
 
 @media screen and (max-width: 1320px) {
     .product {
-        grid-template-columns:
-        70px 30px auto 40px auto 40px 1fr;
+        grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
         grid-template-areas:
-        "logo . title title title title title"
-        "logo . tags tags tags tags tags"
-        "price price price . credit . rating"
-        "priceTitle priceTitle priceTitle . creditTitle . rateTitle"
-        "hr hr hr hr hr hr hr"
-        "description description description description description description description"
-        "feature feature feature feature feature feature feature"
-        "advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
-        "hr2 hr2 hr2 hr2 hr2 hr2 hr2"
-        "actions actions actions actions actions actions actions";
+            "logo . title title title title title"
+            "logo . tags tags tags tags tags"
+            "price price price . credit . rating"
+            "priceTitle priceTitle priceTitle . creditTitle . rateTitle"
+            "hr hr hr hr hr hr hr"
+            "description description description description description description description"
+            "feature feature feature feature feature feature feature"
+            "advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
+            "hr2 hr2 hr2 hr2 hr2 hr2 hr2"
+            "actions actions actions actions actions actions actions";
     }
-
 
     .logo {
         grid-area: logo;
+
         margin-bottom: 20px;
     }
 
@@ -193,6 +195,7 @@
 
     .tags {
         grid-area: tags;
+
         margin-bottom: 20px;
     }
 
@@ -230,6 +233,7 @@
 
     .feature {
         grid-area: feature;
+
         margin-bottom: 20px;
     }
 
@@ -248,20 +252,19 @@
 
 @media screen and (max-width: 640px) {
     .product {
-        grid-template-columns:
-        70px 30px 1fr;
+        grid-template-columns: 70px 30px 1fr;
         grid-template-areas:
-        "logo . title"
-        "logo . tags"
-        "priceTitle priceTitle price"
-        "creditTitle creditTitle credit"
-        "rateTitle rateTitle rating"
-        "hr hr hr"
-        "description description description"
-        "feature feature feature"
-        "advBlock advBlock advBlock"
-        "hr2 hr2 hr2"
-        "actions actions actions";
+            "logo . title"
+            "logo . tags"
+            "priceTitle priceTitle price"
+            "creditTitle creditTitle credit"
+            "rateTitle rateTitle rating"
+            "hr hr hr"
+            "description description description"
+            "feature feature feature"
+            "advBlock advBlock advBlock"
+            "hr2 hr2 hr2"
+            "actions actions actions";
     }
 
     .price {
@@ -281,20 +284,20 @@
     .product {
         grid-template-columns: 1fr;
         grid-template-areas:
-        "logo"
-        "title"
-        "tags"
-        "price"
-        "priceTitle"
-        "credit"
-        "creditTitle"
-        "rating"
-        "rateTitle"
-        "hr"
-        "description"
-        "feature"
-        "advBlock"
-        "hr2"
-        "actions";
+            "logo"
+            "title"
+            "tags"
+            "price"
+            "priceTitle"
+            "credit"
+            "creditTitle"
+            "rating"
+            "rateTitle"
+            "hr"
+            "description"
+            "feature"
+            "advBlock"
+            "hr2"
+            "actions";
     }
 }

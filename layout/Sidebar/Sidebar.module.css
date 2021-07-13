@@ -2,7 +2,8 @@
     display: grid;
     align-content: start;
     grid-gap: 20px;
-/*    position: sticky;
-    top: 30px;*/
+
+    /*    position: sticky;
+    top: 30px; */
     align-self: start;
 }
