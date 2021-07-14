@@ -4,10 +4,10 @@ import cn from 'classnames';
 import {ButtonIconProps} from "./ButtonIcon.props";
 import {icons} from "./ButtonIcon.props";
 
-const ButtonIcon = ({icon, appearance, ...props}: ButtonIconProps): JSX.Element => {
+const ButtonIcon = ({icon,className, appearance, ...props}: ButtonIconProps): JSX.Element => {
   const IconComp = icons[icon];
   return (
-    <button className={cn(styles.button, {
+    <button className={cn(styles.button,className,  {
       [styles.primary]: appearance === 'primary',
       [styles.white]: appearance === 'white'
     })} {...props}>
