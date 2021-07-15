@@ -36,6 +36,7 @@ const Product = motion(forwardRef(({
       behavior: 'smooth',
       block: 'start'
     });
+    reviewRef.current?.focus();
   };
 
   return (
@@ -106,7 +107,7 @@ const Product = motion(forwardRef(({
       </Card>
 
       <motion.div className={styles.reviewAnimation} animate={isReviewOpened ? 'visible' : 'hidden'} variants={variants} initial='hidden'>
-        <Card ref={reviewRef} color='blue' className={cn(styles.reviews)}>
+        <Card ref={reviewRef} color='blue' className={cn(styles.reviews)} tabIndex={0}>
           {product.reviews.map(r => (
             <div key={r._id}>
               <Review review={r} />

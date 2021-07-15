@@ -33,7 +33,7 @@ const Menu = (): JSX.Element => {
 
   const variantsChildren = {
     visible: { opacity: 1 , height: 29},
-    hidden: { opacity: 0, height: 0 }
+    hidden: { opacity: 0, height: 0}
   };
 
   const openSecondLevel = (secondCategory: string) => {
@@ -76,9 +76,9 @@ const Menu = (): JSX.Element => {
           }
           return (
             <div key={m._id.secondCategory}>
-              <div
+              <button
                 className={styles.secondLevel}
-                onClick={() => openSecondLevel(m._id.secondCategory)}>{m._id.secondCategory}</div>
+                onClick={() => openSecondLevel(m._id.secondCategory)}>{m._id.secondCategory}</button>
               <motion.div layout
                           variants={variants}
                           initial={m.isOpened ? 'visible' : 'hidden'}
@@ -86,7 +86,7 @@ const Menu = (): JSX.Element => {
                           className={cn(styles.secondLevelBlock, {
                             [styles.secondLevelBlockOpened]: m.isOpened
                           })}>
-                {buildThirdLevel(m.pages, menuItem.route)}
+                {buildThirdLevel(m.pages, menuItem.route, m.isOpened ?? false)}
               </motion.div>
             </div>);
         })}
@@ -94,13 +94,14 @@ const Menu = (): JSX.Element => {
     );
   };
 
-  const buildThirdLevel = (pages: PageItem[], route: string) => {
+  const buildThirdLevel = (pages: PageItem[], route: string, isOpened: boolean) => {
     return (
       pages.map(p => (
         <motion.div key={p.alias} variants={variantsChildren}>
           <Link href={`/${route}/${p.alias}`}>
             <a className={cn(styles.thirdLevel, {
-              [styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath
+              [styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath,
+              [styles.thirdLevelHidden] : !isOpened
             })}>{p.category}</a>
           </Link>
         </motion.div>

@@ -1,8 +1,10 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import {LayoutProps} from "./Layout.props";
 import Sidebar from "./Sidebar/Sidebar";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
+
+import cn from 'classnames';
 
 import styles from './Layout.module.css';
 import {AppContextProvider, IAppContext} from "../context/app.context";
@@ -11,10 +13,11 @@ import Up from "../components/Up/Up";
 const Layout = ({children}: LayoutProps): JSX.Element => {
   return (
     <div className={styles.wrapper}>
+      <a href="#main" tabIndex={1} className={styles.skipLink}>Сразу к содержанию</a>
       <Header className={styles.header} />
 
       <Sidebar className={styles.sidebar} />
-      <div className={styles.body}>
+      <div className={styles.body} id="main">
         {children}
       </div>
 

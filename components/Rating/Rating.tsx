@@ -6,8 +6,16 @@ import StarIcon from './star.svg';
 
 import styles from './Rating.module.css';
 
-const Rating = forwardRef(({isEditable = false, rating, setRating, error, ...props}: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
+const Rating = forwardRef(({
+                             isEditable = false,
+                             rating,
+                             setRating,
+                             error,
+                             ...props
+                           }: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
   const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
+
+  const randomStr =  Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
   useEffect(() => {
     constructRating(rating);
@@ -18,18 +26,28 @@ const Rating = forwardRef(({isEditable = false, rating, setRating, error, ...pro
   const constructRating = (currentRating: number) => {
     const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
       return (
-
-        <button
-          type={'button'}
-          className={cn(styles.star, {
-            [styles.filled]: i < currentRating,
-            [styles.editable]: isEditable
-          })}
-          onMouseEnter={() => changeView(i + 1)}
-          onClick={() => onClick(i + 1)}
-          tabIndex={isEditable ? 0 : -1} >
-          <StarIcon/>
-        </button>
+        <label  className={cn(styles.star, {
+              [styles.filled]: i < currentRating,
+              [styles.editable]: isEditable
+            })} onMouseEnter={() => changeView(i + 1)}
+                onClick={() => onClick(i + 1)}>
+          <input type="radio"
+                 className='visually-hidden'
+                 name={`review-${randomStr}`}
+                 tabIndex={isEditable ? 0 : -1}/>
+          <StarIcon />
+{/*          <button
+            type={'button'}
+            className={cn(styles.star, {
+              [styles.filled]: i < currentRating,
+              [styles.editable]: isEditable
+            })}
+            onMouseEnter={() => changeView(i + 1)}
+            onClick={() => onClick(i + 1)}
+            tabIndex={isEditable ? 0 : -1}>
+            <StarIcon />
+          </button>*/}
+        </label>
       );
     });
     setRatingArray(updatedArray);
