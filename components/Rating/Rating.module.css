@@ -5,9 +5,19 @@
 .star {
     margin-right: 5px;
     padding: 0;
+    display: inline-block;
 
     border: none;
     background-color: transparent;
+}
+
+.hide {
+    display: none;
+}
+
+.star:focus-within {
+    outline-offset: 2px;
+    outline: 1px solid var(--primary);
 }
 
 .editable {

@@ -106,7 +106,12 @@ const Product = motion(forwardRef(({
         </div>
       </Card>
 
-      <motion.div className={styles.reviewAnimation} animate={isReviewOpened ? 'visible' : 'hidden'} variants={variants} initial='hidden'>
+      <motion.div className={cn(styles.reviewAnimation, {
+        [styles.reviewFormHidden] : !isReviewOpened
+      })}
+                  animate={isReviewOpened ? 'visible' : 'hidden'}
+                  variants={variants}
+                  initial='hidden'>
         <Card ref={reviewRef} color='blue' className={cn(styles.reviews)} tabIndex={0}>
           {product.reviews.map(r => (
             <div key={r._id}>

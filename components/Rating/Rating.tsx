@@ -32,21 +32,12 @@ const Rating = forwardRef(({
             })} onMouseEnter={() => changeView(i + 1)}
                 onClick={() => onClick(i + 1)}>
           <input type="radio"
-                 className='visually-hidden'
-                 name={`review-${randomStr}`}
-                 tabIndex={isEditable ? 0 : -1}/>
+                 aria-label={`Рейтинг ${i + 1}`}
+                 className={cn('visually-hidden', {
+                   [styles.hide]: !isEditable
+                 })}
+                 name={`review-${randomStr}`} />
           <StarIcon />
-{/*          <button
-            type={'button'}
-            className={cn(styles.star, {
-              [styles.filled]: i < currentRating,
-              [styles.editable]: isEditable
-            })}
-            onMouseEnter={() => changeView(i + 1)}
-            onClick={() => onClick(i + 1)}
-            tabIndex={isEditable ? 0 : -1}>
-            <StarIcon />
-          </button>*/}
         </label>
       );
     });
