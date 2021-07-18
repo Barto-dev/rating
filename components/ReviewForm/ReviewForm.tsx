@@ -17,7 +17,7 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [isError, setIsError] = useState<string>();
 
-  const {register, control, handleSubmit, formState: {errors}, reset} = useForm<ReviewFormInterface>();
+  const {register, control, handleSubmit, formState: {errors}, reset, clearErrors} = useForm<ReviewFormInterface>();
 
   const onSubmit = async (formData: ReviewFormInterface) => {
     try {
@@ -29,7 +29,7 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
         setIsError('Что-то пошло не так');
       }
     } catch (e) {
-      setIsError(e.message)
+      setIsError(e.message);
     }
 
   };
@@ -39,11 +39,13 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
       <div className={cn(styles.reviewForm, className)} {...props}>
         <Input {...register('name', {required: {value: true, message: 'Заполните имя'}})}
                placeholder={'Имя'}
-               error={errors.name} />
+               error={errors.name}
+               aria-invalid={!!errors.name}/>
         <Input {...register('title', {required: {value: true, message: 'Заполните заголовок'}})}
                placeholder={'Заголовок отзыва'}
                error={errors.title}
-               className={styles.title} />
+               className={styles.title}
+               aria-invalid={!!errors.title}/>
         <div className={styles.rating}>
           <span className={styles.ratingTitle}>Оценка</span>
           <Controller render={({field}) => (
@@ -62,15 +64,16 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
           {...register('description', {required: {value: true, message: 'Заполните описание'}})}
           placeholder='Текст отзыва'
           error={errors.description}
-          className={styles.description} />
+          className={styles.description} aria-label='Текст отзыва'
+          aria-invalid={!!errors.description}/>
         <div className={styles.submit}>
-          <Button appearance={'primary'}>Отправить</Button>
+          <Button appearance={'primary'} onClick={() => {clearErrors();}}>Отправить</Button>
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
         </div>
       </div>
-      {isSuccess && <div className={cn(styles.success, styles.panel)}>
+      {isSuccess && <div className={cn(styles.success, styles.panel)} aria-live='polite' role='status'>
         <div className={styles.successTitle}>Ваш отзыв отправлен</div>
-        <div className="">
+        <div>
           Спасибо, ваш отзыв будет опубликован после проверки.
         </div>
         <button type='button' className={styles.close} onClick={() => setIsSuccess(false)}>

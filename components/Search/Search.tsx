@@ -23,7 +23,7 @@ const Search = ({className, ...props}:SearchProps): JSX.Element => {
   };
 
   return (
-    <form onSubmit={goToSearch} className={cn(styles.search, className)} {...props}>
+    <form onSubmit={goToSearch} className={cn(styles.search, className)} {...props} role='search'>
       <Input className={styles.input} placeholder='Поиск...' value={search} onChange={(e) => setSearch(e.target.value)}/>
       <Button
         aria-label='Начать поиск'

@@ -11,7 +11,10 @@ const Input = forwardRef(({className, error, ...props}: InputProps, ref:Forwarde
            className={cn(styles.input, {
              [styles.error]: error
            })} {...props}/>
-      {error && <span className={styles.errorMessage}>{error.message}</span>}
+      {error && <span aria-live='polite'
+                      role='status'
+                      className={styles.errorMessage}>{error.message}
+      </span>}
       </div>
   );
 });

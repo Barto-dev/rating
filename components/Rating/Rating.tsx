@@ -15,7 +15,7 @@ const Rating = forwardRef(({
                            }: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
   const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
-  const randomStr =  Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  const randomStr = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
   useEffect(() => {
     constructRating(rating);
@@ -26,11 +26,11 @@ const Rating = forwardRef(({
   const constructRating = (currentRating: number) => {
     const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
       return (
-        <label  className={cn(styles.star, {
-              [styles.filled]: i < currentRating,
-              [styles.editable]: isEditable
-            })} onMouseEnter={() => changeView(i + 1)}
-                onClick={() => onClick(i + 1)}>
+        <label className={cn(styles.star, {
+          [styles.filled]: i < currentRating,
+          [styles.editable]: isEditable
+        })} onMouseEnter={() => changeView(i + 1)}
+               onClick={() => onClick(i + 1)}>
           <input type="radio"
                  aria-label={`Рейтинг ${i + 1}`}
                  className={cn('visually-hidden', {
@@ -66,7 +66,11 @@ const Rating = forwardRef(({
       ref={ref} {...props}
       onMouseLeave={() => changeView(rating)}>
       {ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
-      {error && <span className={styles.errorMessage}>{error.message}</span>}
+      {error && <span aria-live='polite'
+                      role='status'
+                      className={styles.errorMessage}>
+        {error.message}
+      </span>}
     </div>
   );
 });

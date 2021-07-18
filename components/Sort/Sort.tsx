@@ -10,13 +10,13 @@ const Sort = ({sort, setSort, className, ...props}: SortProps): JSX.Element => {
     <div className={cn(styles.sort, className)} {...props}>
       <button onClick={() => setSort(SortEnum.Rating)} className={cn(styles.sortBtn, {
         [styles.active]: sort === SortEnum.Rating
-      })}>
+      })} aria-selected={sort === SortEnum.Rating} aria-label='Сортировка по рейтингу'>
         <SortIcon className={styles.sortIcon}/> По&nbsp;рейтингу
       </button>
 
       <button onClick={() => setSort(SortEnum.Price)} className={cn(styles.sortBtn, {
         [styles.active]: sort === SortEnum.Price
-      })}>
+      })} aria-selected={sort === SortEnum.Price} aria-label='Сортировка по цене'>
         <SortIcon className={styles.sortIcon}/> По&nbsp;цене
       </button>
     </div>

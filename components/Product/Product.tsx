@@ -50,16 +50,25 @@ const Product = motion(forwardRef(({
         </div>
         <div className={styles.title}>{product.title}</div>
         <div className={styles.price}>
-          {priceRu(product.price)}
+          <span className='visually-hidden'>Цена</span>{priceRu(product.price)}
           {product.oldPrice &&
-          <Tag className={styles.oldPrice} color={'green'}>{priceRu(product.price - product.oldPrice)}</Tag>}
+          <Tag className={styles.oldPrice} color={'green'}>
+            <span className='visually-hidden'>Скидка</span>
+            {priceRu(product.price - product.oldPrice)}
+          </Tag>}
         </div>
-        <div className={styles.credit}>{priceRu(product.credit)} / <span className={styles.month}>мес</span></div>
-        <div className={styles.rating}><Rating rating={product.reviewAvg ?? product.initialRating} /></div>
+        <div className={styles.credit}>
+          <span className='visually-hidden'>Кредит</span>
+          {priceRu(product.credit)} / <span className={styles.month}>мес</span>
+        </div>
+        <div className={styles.rating}>
+          <span className='visually-hidden'>Рейтинг</span>
+          <Rating rating={product.reviewAvg ?? product.initialRating} />
+        </div>
         <div className={styles.tags}>{product.categories.map(c => <Tag className={styles.category} color={'ghost'}
                                                                        key={c}>{c}</Tag>)}</div>
-        <div className={styles.priceTitle}>цена</div>
-        <div className={styles.creditTitle}>кредит</div>
+        <div className={styles.priceTitle} aria-hidden={true}>цена</div>
+        <div className={styles.creditTitle} aria-hidden={true}>кредит</div>
         <div className={styles.rateTitle}>
           <button onClick={scrollToReview}>
             {product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
@@ -100,7 +109,8 @@ const Product = motion(forwardRef(({
           <Button onClick={() => setIsReviewOpened(!isReviewOpened)}
                   className={styles.reviewButton}
                   appearance={'ghost'}
-                  arrow={isReviewOpened ? 'down' : 'right'}>
+                  arrow={isReviewOpened ? 'down' : 'right'}
+                  aria-expanded={isReviewOpened}>
             Читать отзывы
           </Button>
         </div>
