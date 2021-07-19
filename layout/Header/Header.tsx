@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {HeaderProps} from "./Header.props";
 import Logo from '../logo.svg';
-import {motion} from 'framer-motion';
+import {motion, useReducedMotion} from 'framer-motion';
 
 import styles from './Header.module.css';
 import cn from 'classnames';
@@ -13,6 +13,7 @@ import {useRouter} from "next/router";
 const Header = ({className, ...props}: HeaderProps): JSX.Element => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsOpened(false);
@@ -28,7 +29,7 @@ const Header = ({className, ...props}: HeaderProps): JSX.Element => {
       }
     },
     closed: {
-      opacity: 0,
+      opacity: shouldReduceMotion ? 1 : 0,
       x: '100%'
     }
   };

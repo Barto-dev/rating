@@ -2,6 +2,12 @@
     margin-bottom: 20px;
 }
 
+.firstLevelList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 .firstLevel {
     display: grid;
     align-items: center;
@@ -42,13 +48,16 @@
 .secondBlock {
     margin-top: 15px;
     margin-left: 12px;
-    padding-left: 32px;
+    list-style-type: none;
+    padding: 0 0 0 32px;
 
     border-left: 1px solid #DFDFDF;
 }
 
 .secondLevelBlock {
     overflow: hidden;
+    list-style-type: none;
+    padding: 0;
 }
 
 .thirdLevel {

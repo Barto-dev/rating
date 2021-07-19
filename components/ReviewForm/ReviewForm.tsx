@@ -76,16 +76,21 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
         <div>
           Спасибо, ваш отзыв будет опубликован после проверки.
         </div>
-        <button type='button' className={styles.close} onClick={() => setIsSuccess(false)}>
+        <button type='button'
+                className={styles.close}
+                onClick={() => setIsSuccess(false)}
+                aria-label='Закрыть оповещение'>
           <CloseIcon />
         </button>
       </div>}
 
-      {isError && <div className={cn(styles.error, styles.panel)}>
+      {isError && <div className={cn(styles.error, styles.panel)} aria-live='polite' role='status'>
         <div>
           Что-то пошло не так, попробуйте обновить страницу
         </div>
-        <button className={styles.close} onClick={() => setIsError(undefined)}>
+        <button className={styles.close}
+                onClick={() => setIsError(undefined)}
+                aria-label='Закрыть оповещение'>
           <CloseIcon />
         </button>
       </div>}
