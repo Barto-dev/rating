@@ -3,9 +3,10 @@
 }
 
 .firstLevelList {
-    list-style-type: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+
+    list-style-type: none;
 }
 
 .firstLevel {
@@ -33,13 +34,14 @@
 
 .secondLevel {
     margin-bottom: 10px;
-    background-color: transparent;
-    border: none;
     padding: 0;
+
     cursor: pointer;
     text-transform: uppercase;
 
     color: var(--gray-dark);
+    border: none;
+    background-color: transparent;
 
     font-size: 12px;
     line-height: 16px;
@@ -48,16 +50,19 @@
 .secondBlock {
     margin-top: 15px;
     margin-left: 12px;
-    list-style-type: none;
     padding: 0 0 0 32px;
+
+    list-style-type: none;
 
     border-left: 1px solid #DFDFDF;
 }
 
 .secondLevelBlock {
     overflow: hidden;
-    list-style-type: none;
+
     padding: 0;
+
+    list-style-type: none;
 }
 
 .thirdLevel {
@@ -68,10 +73,10 @@
     cursor: pointer;
 
     color: #333;
+    outline-offset: -1px;
 
     font-size: 14px;
     font-weight: 400;
-    outline-offset: -1px;
 }
 
 .thirdLevelHidden {

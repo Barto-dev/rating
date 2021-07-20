@@ -47,6 +47,8 @@
 
 .advBlock {
     grid-column: middle / end;
+     font-size: 16px;
+    line-height: 22px;
 }
 
 .logo img {
@@ -104,11 +106,6 @@
     margin-left: 20px;
 }
 
-.advBlock {
-    font-size: 16px;
-    line-height: 22px;
-}
-
 .advTitle {
     margin: 0 0 5px;
 
@@ -119,7 +116,7 @@
     margin-bottom: 20px;
     padding-left: 15px;
 
-    border-left: 2px solid #1dc37e;
+    border-left: 2px solid #1DC37E;
 }
 
 .disadvantages {
@@ -155,12 +152,14 @@
 
 .reviewAnimation {
     position: relative;
+
     visibility: visible;
     overflow: hidden;
 }
 
 .reviewFormHidden {
     visibility: hidden;
+
     transition-delay: 0.2s;
     transition-property: visibility;
 }

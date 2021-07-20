@@ -3,9 +3,10 @@
 }
 
 .star {
+    display: inline-block;
+
     margin-right: 5px;
     padding: 0;
-    display: inline-block;
 
     border: none;
     background-color: transparent;
@@ -16,8 +17,8 @@
 }
 
 .star:focus-within {
-    outline-offset: 2px;
     outline: 1px solid var(--primary);
+    outline-offset: 2px;
 }
 
 .editable {

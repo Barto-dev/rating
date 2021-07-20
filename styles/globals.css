@@ -2,12 +2,12 @@
     --black: #3B434E;
     --gray-light: #EBEBEB;
     --gray: #A4A4A4;
-    --gray-dark: #6c7077;
+    --gray-dark: #6C7077;
     --white: #FFF;
-    --primary: #7351f5;
+    --primary: #7351F5;
     --primary-hover: #6344DF;
     --red: #FC836D;
-    --green: #007b48;
+    --green: #007B48;
     --green-light: #C8F8E4;
     --font-family: 'Noto Sans KR', sans-serif;
 }
@@ -36,9 +36,11 @@ a {
 }
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  clip: rect(0 0 0 0);
+    position: absolute;
+
+    clip: rect(0 0 0 0);
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
 }

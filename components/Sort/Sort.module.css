@@ -1,13 +1,10 @@
 .sortIcon {
     visibility: hidden;
+    margin-right: 8px;
 }
 
 .active .sortIcon {
     visibility: visible;
-}
-
-.sortIcon {
-    margin-right: 8px;
 }
 
 .sortBtn {
