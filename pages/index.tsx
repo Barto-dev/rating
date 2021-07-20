@@ -14,6 +14,7 @@ import Textarea from "../components/Textarea/Textarea";
 import {API} from "../helpers/api";
 
 
+
 function Home({menu, firstCategory}: HomeProps): JSX.Element {
 
   const [rating, setRating] = useState<number>(4);
@@ -28,7 +29,6 @@ function Home({menu, firstCategory}: HomeProps): JSX.Element {
       <Rating rating={rating} isEditable={true} setRating={setRating} />
       <Input placeholder={'Name'}/>
       <Textarea placeholder={'Name'}/>
-
     </>
   );
 }

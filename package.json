@@ -5,14 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "debug": "NODE_OPTIONS='--debug' next dev",
     "start": "next start",
     "lint": "next lint",
     "stylelint": "stylelint \"**/*.css\" --fix"
   },
   "simple-git-hooks": {
-    "pre-commit": "stylelint \"**/*.css\" --fix",
-    "pre-push": "stylelint \"**/*.css\" --fix"
+    "pre-commit": "",
+    "pre-push": ""
   },
   "dependencies": {
     "axios": "^0.21.1",

@@ -1,15 +1,16 @@
-import {useEffect} from "react";
 import '../styles/globals.css';
 import Head from "next/head";
 import type {AppProps} from 'next/app';
-import ReactGA from 'react-ga';
+import Router from "next/router";
 
 function MyApp({Component, pageProps, router}: AppProps): JSX.Element {
 
-  useEffect(() => {
-    ReactGA.initialize('UA-000000-01');
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
+  Router.events.on('routeChangeComplete', (url: string) => {
+      if (typeof window !== 'undefined') {
+        console.log(url)
+      }
+  });
+
 
   return (
     <>
