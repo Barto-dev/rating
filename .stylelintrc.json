@@ -4,7 +4,7 @@
     "stylelint-order-config-standard"
   ],
   "ignoreFiles": [
-    "/out/**/*.css"
+    "./out/**/*.css"
   ],
   "plugins": [
     "stylelint-order"
