@@ -1,2 +1,1 @@
-## Study project NextJS
-
+## NextJS
